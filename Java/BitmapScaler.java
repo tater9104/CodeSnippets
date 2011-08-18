@@ -1,3 +1,10 @@
+package com.cwd.demo.Tools;
+
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+
 public class BitmapScaler {
 	
 	private Bitmap scaledBitmap;
@@ -38,11 +45,12 @@ public class BitmapScaler {
 	
 	private void scaleScaledBitmap(BitmapInfo newInfo)
 	{
+		
 		int ScaledHeight = scaledBitmap.getHeight();
 		int ScaledWidth = scaledBitmap.getWidth();
 		
-		float MatrixWidth = ((float)ScaledWidth) / newInfo.width;
-		float MatrixHeight = ((float)ScaledHeight)/ newInfo.height;
+		float MatrixWidth = ((float)newInfo.width) / ScaledWidth;
+		float MatrixHeight = ((float)newInfo.height) / ScaledHeight;
 		
 		Matrix matrix = new Matrix();
 		matrix.postScale(MatrixWidth, MatrixHeight);
